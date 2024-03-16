@@ -33,7 +33,7 @@ import java.util.List;
     private String lastName;
 
     @Column(name = "username", nullable = false)
-    private String userName;
+    private String username;
 
     @Column(name = "email", nullable = false,  unique = true)
     private String email;
@@ -72,11 +72,11 @@ import java.util.List;
     }
 
     public String getUsername() {
-        return userName;
+        return username;
     }
 
-    public void setUsername(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
