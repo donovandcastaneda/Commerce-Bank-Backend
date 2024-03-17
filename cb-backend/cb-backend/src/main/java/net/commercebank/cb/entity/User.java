@@ -35,12 +35,6 @@ import java.util.List;
     @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "email", nullable = false,  unique = true)
-    private String email;
-
-    @Column(nullable = false)
-    private String login;
-
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -77,22 +71,6 @@ import java.util.List;
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
 
