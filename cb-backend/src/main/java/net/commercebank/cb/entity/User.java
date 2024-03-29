@@ -14,6 +14,8 @@ import java.util.List;
 
 
 @AllArgsConstructor
+
+
     @NoArgsConstructor
     @Builder
     @Data
@@ -37,6 +39,10 @@ import java.util.List;
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "balance", nullable = false)
+    private double balance;
+
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
@@ -88,6 +94,14 @@ import java.util.List;
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     @Override
