@@ -4,9 +4,14 @@ public class AuthenticationResponse {
     private String token;
     private String message;
 
-    public AuthenticationResponse(String token, String message) {
+    private Integer id; // Change to Integer if your User ID is an Integer
+
+
+    public AuthenticationResponse(String token, String message, Integer id) {
         this.token = token;
         this.message = message;
+        this.id = id; // Set the userId in the constructor
+
     }
 
     public String getToken() {
@@ -15,5 +20,9 @@ public class AuthenticationResponse {
 
     public String getMessage() {
         return message;
+    }
+
+    public Integer getId() {
+        return id; // Getter for userId
     }
 }
