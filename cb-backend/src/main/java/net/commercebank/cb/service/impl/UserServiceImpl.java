@@ -45,6 +45,10 @@ public class UserServiceImpl implements UserService {
 
         double total = user.getBalance() + amount;
         user.setBalance(total);
+
+        double totalDeposited = user.getTotalDeposited() + amount;
+        user.setTotalDeposited(totalDeposited);
+
         User savedUser = userRepository.save(user);
         return UserMapper.mapToUserDto(savedUser);
     }
@@ -62,6 +66,10 @@ public class UserServiceImpl implements UserService {
 
         double total = user.getBalance() - amount;
         user.setBalance(total);
+
+        double totalWithdrawn = user.getTotalWithdrawn() + amount;
+        user.setTotalWithdrawn(totalWithdrawn);
+
         User savedUser = userRepository.save(user);
 
         return UserMapper.mapToUserDto(savedUser);

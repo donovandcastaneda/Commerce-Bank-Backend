@@ -43,9 +43,20 @@ import java.util.List;
     @Column(name = "balance", nullable = false)
     private double balance;
 
-
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
+    @Column(name = "totalDeposited", nullable = false)
+    private double totalDeposited;
+
+
+    @Column(name = "totalWithdrawn", nullable = false)
+    private double totalWithdrawn;
+
+
+
+
+
 
     public Integer getId() {
         return id;
@@ -102,6 +113,22 @@ import java.util.List;
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public double getTotalDeposited() {
+        return totalDeposited;
+    }
+
+    public void setTotalDeposited(double totalDeposited) {
+        this.totalDeposited = totalDeposited;
+    }
+
+    public double getTotalWithdrawn() {
+        return totalWithdrawn;
+    }
+
+    public void setTotalWithdrawn(double totalWithdrawn) {
+        this.totalWithdrawn = totalWithdrawn;
     }
 
     @Override

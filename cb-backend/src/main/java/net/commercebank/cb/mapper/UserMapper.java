@@ -13,8 +13,12 @@ public class UserMapper {
                 userDto.getUsername(),
                 userDto.getPassword(),
                 userDto.getBalance(),
-                userDto.getRole()
-        );
+                userDto.getRole(),
+                userDto.getTotalDeposited(),
+                userDto.getTotalWithdrawn()
+
+
+                );
 
         return user;
     }
@@ -27,7 +31,10 @@ public class UserMapper {
                 user.getUsername(),
                 user.getPassword(),
                 user.getBalance(),
-                user.getRole()
+                user.getRole(),
+                user.getTotalDeposited(),
+                user.getTotalWithdrawn()
+
         );
 
         return userDto;
