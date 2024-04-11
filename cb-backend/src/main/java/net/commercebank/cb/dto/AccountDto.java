@@ -2,16 +2,17 @@ package net.commercebank.cb.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import net.commercebank.cb.entity.Type;
+import net.commercebank.cb.entity.User;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class AccountDto {
-	private Integer account_id;
+	private Long account_id;
 
-	private Integer user_id;
-
-	private Type account_Type;
+	private Type account_type;
 
     private double balance_amt;
 

@@ -17,57 +17,38 @@ public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="account_id", nullable = false)
-	private Integer account_id;
-
-
-    
-	
-	@Column(name = "user_id")
-	private Integer user_id;
+	private Long account_id;
 
 
 
 	@Enumerated(value = EnumType.STRING)
-	private Type account_Type;
+	private Type account_type;
 
 
 	@Column(name = "balance")
     private double balance_amt;
 
-
-
-	public Integer getaccountId() {
+    public Long getAccount_id() {
         return account_id;
     }
 
-    public void setaccountId(Integer account_id) {
+    public void setAccount_id(Long account_id) {
         this.account_id = account_id;
     }
 
-    public Integer getuserId() {
-        return user_id;
+    public Type getAccount_type() {
+        return account_type;
     }
 
-    public void setuserId(Integer user_id) {
-        this.user_id = user_id;
+    public void setAccount_type(Type account_Type) {
+        this.account_type = account_Type;
     }
 
-   
-
-    public Type getType() {
-        return account_Type;
-    }
-
-    public void setType(Type account_Type) {
-        this.account_Type = account_Type;
-    }
-
-    public double getbalanceAmt() {
+    public double getBalance_amt() {
         return balance_amt;
     }
 
-    public void setbalanceAmt(double balance_amt) {
+    public void setBalance_amt(double balance_amt) {
         this.balance_amt = balance_amt;
     }
-	
 }

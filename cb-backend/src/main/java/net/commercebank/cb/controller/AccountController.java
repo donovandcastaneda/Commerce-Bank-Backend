@@ -26,7 +26,7 @@ public class AccountController {
 
 	// Endpoint to get account details by account number
 	@GetMapping("/{account_id}")
-    public ResponseEntity<AccountDto> getAccountByNumber(@PathVariable Integer account_id) {
+    public ResponseEntity<AccountDto> getAccountByNumber(@PathVariable long account_id) {
         AccountDto account = accountService.getAccountByNumber(account_id);
         if (account == null) {
             return ResponseEntity.notFound().build();
