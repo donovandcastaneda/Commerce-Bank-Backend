@@ -49,7 +49,6 @@ public class AuthenticationService {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
 
-        user.setRole(request.getRole());
         user.setBalance(request.getBalance());
         user.setTotalDeposited(request.getTotalDeposited());
         user.setTotalWithdrawn(request.getTotalWithdrawn());

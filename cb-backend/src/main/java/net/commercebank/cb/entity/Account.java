@@ -19,14 +19,16 @@ public class Account {
 	@Column(name="account_id", nullable = false)
 	private Long account_id;
 
-
-
 	@Enumerated(value = EnumType.STRING)
 	private Type account_type;
 
 
 	@Column(name = "balance")
     private double balance_amt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Long getAccount_id() {
         return account_id;
@@ -50,5 +52,13 @@ public class Account {
 
     public void setBalance_amt(double balance_amt) {
         this.balance_amt = balance_amt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

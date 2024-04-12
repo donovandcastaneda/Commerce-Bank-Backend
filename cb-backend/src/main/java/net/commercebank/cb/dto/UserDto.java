@@ -3,7 +3,9 @@ package net.commercebank.cb.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.commercebank.cb.entity.Role;
+import net.commercebank.cb.entity.Account;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,11 +23,12 @@ public class UserDto {
 
 	private double balance;
 
-	private Role role;
 
 	private double totalDeposited;
 
 	private double totalWithdrawn;
+
+	private List<Account> accounts;
 
 
 

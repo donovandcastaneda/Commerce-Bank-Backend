@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.commercebank.cb.entity.Type;
 import net.commercebank.cb.entity.User;
+import org.mapstruct.control.MappingControl;
 
 @Data
 @NoArgsConstructor
@@ -15,5 +16,7 @@ public class AccountDto {
 	private Type account_type;
 
     private double balance_amt;
+
+	private User user;
 
 }

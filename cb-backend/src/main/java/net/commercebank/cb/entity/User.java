@@ -43,8 +43,6 @@ import java.util.List;
     @Column(name = "balance", nullable = false)
     private double balance;
 
-    @Enumerated(value = EnumType.STRING)
-    private Role role;
 
     @Column(name = "totalDeposited", nullable = false)
     private double totalDeposited;
@@ -52,6 +50,9 @@ import java.util.List;
 
     @Column(name = "totalWithdrawn", nullable = false)
     private double totalWithdrawn;
+
+    @OneToMany(mappedBy = "user")
+    private List<Account> accounts;
 
 
 
@@ -99,13 +100,6 @@ import java.util.List;
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     public double getBalance() {
         return balance;
@@ -131,9 +125,17 @@ import java.util.List;
         this.totalWithdrawn = totalWithdrawn;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority((role.name())));
+        return List.of();
     }
 
     @Override
