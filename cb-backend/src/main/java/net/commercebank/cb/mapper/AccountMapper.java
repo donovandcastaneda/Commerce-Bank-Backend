@@ -10,7 +10,8 @@ public class AccountMapper {
 				accountDto.getAccount_id(),
 				accountDto.getAccount_type(),
                 accountDto.getBalance_amt(),
-				accountDto.getUser()
+				accountDto.getUser(),
+				accountDto.getTransactions()
 				);
 
 		return account;
@@ -20,7 +21,8 @@ public class AccountMapper {
             account.getAccount_id(),
             account.getAccount_type(),
             account.getBalance_amt(),
-			account.getUser()
+			account.getUser(),
+				account.getTransactions()
 				);
 
 		return accountDto;
