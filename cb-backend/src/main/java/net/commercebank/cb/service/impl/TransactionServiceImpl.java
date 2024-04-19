@@ -15,12 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class TransactionServiceImpl implements TransactionService {
 
     private TransactionRepository transactionRepository;
-    private AccountRepository accountRepository; // Correctly declare the repository
+    private AccountRepository accountRepository;
 
-    // Constructor that properly initializes both repositories
     public TransactionServiceImpl(TransactionRepository transactionRepository, AccountRepository accountRepository) {
         this.transactionRepository = transactionRepository;
-        this.accountRepository = accountRepository; // Correctly initialize account repository
+        this.accountRepository = accountRepository;
     }
 
     @Transactional

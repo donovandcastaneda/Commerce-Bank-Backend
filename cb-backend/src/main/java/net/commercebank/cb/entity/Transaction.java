@@ -27,6 +27,9 @@ public class Transaction {
     @Column(name = "transaction_type")
     private String transaction_type;
 
+    @Column(name = "transaction_name")
+    private String transaction_name;
+
 
     @Column(name = "amount")
     private double amount;
@@ -69,6 +72,15 @@ public class Transaction {
         this.transaction_type = transaction_type;
     }
 
+
+    public String getTransaction_name() {
+        return transaction_name;
+    }
+
+    public void setTransaction_name(String transaction_name) {
+        this.transaction_name = transaction_name;
+    }
+
     public double getAmount() {
         return amount;
     }
@@ -94,4 +106,6 @@ public class Transaction {
         this.account = account;
         processTransaction();
     }
+
+
 }

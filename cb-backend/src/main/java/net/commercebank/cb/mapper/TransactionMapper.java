@@ -10,6 +10,7 @@ public class TransactionMapper {
             Transaction transaction = new Transaction(
                     transactionDto.getTransaction_id(),
                     transactionDto.getTransaction_type(),
+                    transactionDto.getTransaction_name(),
                     transactionDto.getAmount(),
                     transactionDto.getTransaction_date(),
                     transactionDto.getAccount()
@@ -22,6 +23,7 @@ public class TransactionMapper {
             TransactionDto transactionDto = new TransactionDto(
                     transaction.getTransaction_id(),
                     transaction.getTransaction_type(),
+                    transaction.getTransaction_name(),
                     transaction.getAmount(),
                     transaction.getTransaction_date(),
                     transaction.getAccount()
