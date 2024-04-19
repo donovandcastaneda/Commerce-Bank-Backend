@@ -35,6 +35,19 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private List<Transaction> transactions;
 
+    // Method to deposit money into the account
+    public void deposit(double amount) {
+        this.balance_amt += amount;
+    }
+
+    // Method to withdraw money from the account
+    public void withdraw(double amount) {
+        if (amount > this.balance_amt) {
+            throw new IllegalArgumentException("Insufficient funds for withdrawal.");
+        }
+        this.balance_amt -= amount;
+    }
+
 
     public Long getAccount_id() {
         return account_id;

@@ -38,7 +38,20 @@ public class Transaction {
     @JoinColumn(name = "account_id")
     private Account account;
 
-
+    public void processTransaction() {
+        if (account != null) {
+            switch (transaction_type) {
+                case "DEPOSIT":
+                    account.deposit(amount);
+                    break;
+                case "WITHDRAWAL":
+                    account.withdraw(amount);
+                    break;
+                default:
+                    throw new UnsupportedOperationException("Transaction type " + transaction_type + " is not supported.");
+            }
+        }
+    }
 
     public Long getTransaction_id() {
         return transaction_id;
@@ -70,6 +83,7 @@ public class Transaction {
 
     public void setTransaction_date(LocalDateTime transaction_date) {
         this.transaction_date = transaction_date;
+        processTransaction();
     }
 
     public Account getAccount() {
@@ -78,5 +92,6 @@ public class Transaction {
 
     public void setAccount(Account account) {
         this.account = account;
+        processTransaction();
     }
 }
