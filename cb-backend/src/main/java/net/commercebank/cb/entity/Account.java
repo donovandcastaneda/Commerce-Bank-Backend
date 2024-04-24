@@ -21,6 +21,9 @@ public class Account {
 	@Column(name="account_id", nullable = false)
 	private Long account_id;
 
+    @Column(name = "account_name", nullable = false)
+    private String account_name;
+
 	@Enumerated(value = EnumType.STRING)
 	private Type account_type;
 
@@ -55,6 +58,14 @@ public class Account {
 
     public void setAccount_id(Long account_id) {
         this.account_id = account_id;
+    }
+
+    public String getAccount_name() {
+        return account_name;
+    }
+
+    public void setAccount_name(String account_name) {
+        this.account_name = account_name;
     }
 
     public Type getAccount_type() {

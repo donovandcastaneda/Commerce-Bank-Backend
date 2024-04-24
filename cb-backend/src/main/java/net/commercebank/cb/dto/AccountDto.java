@@ -16,6 +16,8 @@ import java.util.List;
 public class AccountDto {
 	private Long account_id;
 
+	private String account_name;
+
 	private Type account_type;
 
     private double balance_amt;
