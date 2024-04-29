@@ -1,5 +1,6 @@
 package net.commercebank.cb.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class Account {
 	@Column(name="account_id", nullable = false)
 	private Long account_id;
 
+
     @Column(name = "account_name", nullable = false)
     private String account_name;
 
@@ -31,6 +33,7 @@ public class Account {
 	@Column(name = "balance")
     private double balance_amt;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -99,4 +102,7 @@ public class Account {
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
+
+
+
 }

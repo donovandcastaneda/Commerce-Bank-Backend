@@ -25,27 +25,22 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     public TransactionDto createTransaction(TransactionDto transactionDto) {
         Transaction transaction = TransactionMapper.mapToTransaction(transactionDto);
-        Account account = accountRepository.findById(transaction.getAccount().getAccount_id())
-                .orElseThrow(() -> new EntityNotFoundException("Account not found"));
 
-        // Update the account balance based on the transaction
-        switch (transaction.getTransaction_type()) {
-            case "DEPOSIT":
-                account.deposit(transaction.getAmount());
-                break;
-            case "WITHDRAW":
-                account.withdraw(transaction.getAmount());
-                break;
-            default:
-                throw new UnsupportedOperationException("Unsupported transaction type");
+        if (transaction.getAccount() == null) {
+            throw new IllegalArgumentException("Account data missing in the transaction");
         }
 
-        // Save the updated account and transaction
+        Long accountId = transaction.getAccount().getAccount_id();
+        Account account = accountRepository.findById(accountId)
+                .orElseThrow(() -> new EntityNotFoundException("Account not found with ID: " + accountId));
+
         accountRepository.save(account);
         Transaction savedTransaction = transactionRepository.save(transaction);
 
         return TransactionMapper.mapToTransactionDto(savedTransaction);
     }
+
+
 
     public TransactionDto getTransactionByNumber(long transaction_id) {
         Transaction transaction = transactionRepository.findById(transaction_id)
