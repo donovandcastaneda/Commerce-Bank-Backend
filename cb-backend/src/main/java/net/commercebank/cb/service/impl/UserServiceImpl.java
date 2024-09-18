@@ -37,6 +37,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDto updateUser(Long id, UserDto userDto) {
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with ID: " + id));
+
+        // Update fields
+        existingUser.setFirstName(userDto.getFirstName());
+        existingUser.setLastName(userDto.getLastName());
+        existingUser.setUsername(userDto.getUsername());
+        // Add more fields as necessary
+
+        // Save the updated user
+        User updatedUser = userRepository.save(existingUser);
+
+        // Return the updated DTO
+        return UserMapper.mapToUserDto(updatedUser);
+    }
+
+    @Override
     public UserDto deposit(Long id, double amount) {
 
         User user = userRepository

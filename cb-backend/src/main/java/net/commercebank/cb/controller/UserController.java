@@ -25,6 +25,12 @@ public class UserController {
         return new ResponseEntity<>(userService.createUser(userDto), HttpStatus.CREATED);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
+        UserDto updatedUser = userService.updateUser(id, userDto);
+        return ResponseEntity.ok(updatedUser);
+    }
+
     //Get Account REST API
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable Long id){
@@ -58,7 +64,6 @@ public class UserController {
         List<UserDto> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
-
     //Delete Account REST API
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id){
