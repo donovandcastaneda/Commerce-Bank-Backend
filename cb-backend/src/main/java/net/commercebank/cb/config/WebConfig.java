@@ -6,6 +6,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 public class WebConfig {
@@ -17,8 +18,8 @@ public class WebConfig {
         config.setAllowCredentials(true);
         config.setAllowedOrigins(Arrays.asList( "http://localhost:3000",
                 "https://cbproject.xyz",
-                "https://www.cbproject.xyz"));
-        config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept"));
+                "https://www.cbproject.xyz","http://localhost:8080","https://commerce-bank-frontend.vercel.app"));
+        config.setAllowedHeaders(List.of("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         config.setMaxAge(3600L);
         source.registerCorsConfiguration("/**", config);
